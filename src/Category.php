@@ -31,6 +31,12 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
         
+        function update($new_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE categories SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            $this->setName($new_name);
+        }
+        
         function addTask($task)
         {
             $GLOBALS['DB']->exec("INSERT INTO categories_tasks (category_id, task_id) VALUES ({$this->getId()}, {$task->getId()});");    
@@ -85,6 +91,12 @@
                 }
             }
             return $found_category;
+        }
+        
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM categories WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM categories_tasks WHERE category_id = {$this->getId()};");
         }
         
         // Old way, pre-join table
