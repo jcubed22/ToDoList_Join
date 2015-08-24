@@ -28,35 +28,15 @@
             $test_category->save();
 
             $description = "Wash the dog";
-            $category_id = $test_category->getId();
             $due_date = 0000;
-            $test_task = new Task($description, $category_id, $due_date, $id);
+            $test_task = new Task($description, $due_date, $id);
             $test_task->save();
 
             $result = $test_task->getId();
 
             $this->assertEquals(true, is_numeric($result));
         }
-
-        function test_getCategoryId()
-        {
-          $name = "Home Stuff";
-          $id = null;
-          $test_category = new Category($name, $id);
-          $test_category->save();
-
-          $description = "Wash the dog";
-          $category_id = $test_category->getId();
-          $due_date = 0000;
-          $test_task = new Task($description, $category_id, $due_date, $id);
-          $test_task->save();
-
-          $result = $test_task->getCategoryId();
-
-          $this->assertEquals(true, is_numeric($result));
-        }
-
-
+        
         function test_save()
         {
             //Arrange
@@ -67,9 +47,8 @@
 
 
             $description = "Wash the dog";
-            $category_id = $test_category->getId();
             $due_date = 0000;
-            $test_task = new Task($description, $category_id, $due_date, $id);
+            $test_task = new Task($description, $due_date, $id);
 
             //Act
             $test_task->save();
@@ -88,13 +67,12 @@
             $test_category->save();
 
             $description = "Wash the dog";
-            $category_id = $test_category->getId();
             $due_date = 0000;
-            $test_Task = new Task($description, $category_id, $due_date, $id);
+            $test_Task = new Task($description, $due_date, $id);
             $test_Task->save();
 
             $description2 = "Water the lawn";
-            $test_Task2 = new Task($description2, $category_id, $due_date, $id);
+            $test_Task2 = new Task($description2, $due_date, $id);
             $test_Task2->save();
 
             //Act
@@ -114,13 +92,12 @@
             $test_category->save();
 
             $description = "Wash the dog";
-            $category_id = $test_category->getId();
             $due_date = 0000;
-            $test_Task = new Task($description, $category_id, $due_date, $id);
+            $test_Task = new Task($description, $due_date, $id);
             $test_Task->save();
 
             $description2 = "Water the lawn";
-            $test_Task2 = new Task($description2, $category_id, $due_date, $id);
+            $test_Task2 = new Task($description2, $due_date, $id);
             $test_Task2->save();
 
             //Act
@@ -154,14 +131,13 @@
             $test_category->save();
 
             $description = "Wash the dog";
-            $category_id = $test_category->getId();
             $due_date = 0000;
-            $test_Task = new Task($description, $category_id, $due_date, $id);
+            $test_Task = new Task($description, $due_date, $id);
             $test_Task->save();
 
 
             $description2 = "Water the lawn";
-            $test_Task2 = new Task($description2, $category_id, $due_date, $id);
+            $test_Task2 = new Task($description2, $due_date, $id);
             $test_Task2->save();
 
             //Act
